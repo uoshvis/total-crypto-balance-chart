@@ -1,4 +1,9 @@
-# Byte-compiled / optimized / DLL files
+# My ignores
+binance/
+krakenex/
+config.py
+ENV*/
+
 __pycache__/
 *.py[cod]
 *$py.class
