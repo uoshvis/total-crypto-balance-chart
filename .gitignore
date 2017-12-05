@@ -3,6 +3,7 @@ binance/
 krakenex/
 config.py
 ENV*/
+*_chart.html
 
 __pycache__/
 *.py[cod]
