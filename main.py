@@ -25,10 +25,7 @@ class TotalBalanceClient(object):
         self.client_cw = Client_cw()
 
     def _match_name(self, pair):
-        if pair in self.KRAKEN_SYMBOL_DICT:
-            return self.KRAKEN_SYMBOL_DICT[pair]
-        else:
-            return pair
+        return self.KRAKEN_SYMBOL_DICT.get(pair, pair)
 
     def _unify_kraken_name(self, asset):
         if asset in self.KRAKEN_SYMBOL_DICT:
@@ -82,7 +79,7 @@ class TotalBalanceClient(object):
         # Filter only BTC prices by account assets and calculate total value
         for price in prices:
             symbol = price['symbol']
-            if symbol[-3:] == 'BTC' and symbol[:-3] in list(my_balance.keys()):
+            if symbol[-3:] == 'BTC' and symbol[:-3] in my_balance.keys():
                 my_asset = my_balance[symbol[:-3]]
                 my_asset['price_BTC'] = float(price['price'])
                 my_asset['value_BTC'] = (float(price['price']) * my_asset['free'])
