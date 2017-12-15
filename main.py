@@ -161,7 +161,7 @@ class TotalBalanceClient(object):
                 labels.append(k)
                 values.append(v['value_BTC'])
             else:
-                print('Skipping because does not have price values: ', k)
+                print('Skipping because does not have price values: {}'.format(k))
 
         return (labels, values)
 
@@ -194,7 +194,7 @@ class TotalBalanceClient(object):
 
     def plot_pie(self, values, labels, name=''):
         total_BTC = sum(values)
-        title = 'Estimated value: ' + str(total_BTC) + ' BTC'
+        title = 'Estimated value: {} BTC'.format(str(total_BTC))
         filename = name + '_chart.html'
         layout = go.Layout(title=title)
         trace = go.Pie(labels=labels, values=values)
